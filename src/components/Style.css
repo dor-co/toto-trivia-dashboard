@@ -1,0 +1,28 @@
+.scoreTable{
+    align-items: center;
+    text-align: end;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    font-size: 25px;
+    direction: rtl;
+}
+
+.headerTable{
+    background: #414042;
+    color: #cfcfcf;
+}
+
+.rowsTable{
+    background: #5F5F60;
+    color: #fff;
+    font-size: 25px;
+}
+
+.dashboardTitle{
+    background: linear-gradient(to bottom, #2c2c2c 50%, #000000 50%);
+    color: #E9E9E9;
+    height: 50px;
+    padding-top: 2px;
+    font-size: 40px;
+}
