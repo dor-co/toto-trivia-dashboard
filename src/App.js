@@ -2,12 +2,12 @@ import logo from "./logo.svg";
 import "./App.css";
 import "firebase/firestore";
 import { useFirestoreDocData, useFirestore } from "reactfire";
+import Score from './components/Score';
 
 function CurrentQuestion() {
 	// easily access the Firestore library
 	const questionsRef = useFirestore().collection("Questions").doc("Question1");
 	const currentQuestionRef = useFirestore().collection("CurrentQuestion").doc("CurrentQuestion");
-	console.log('uri');
 	//console.log(currentQuestion);
 
 
@@ -31,7 +31,8 @@ function CurrentQuestion() {
 function App() {
 	return (
 		<div className="App">
-			<CurrentQuestion />
+			{/* <CurrentQuestion /> */}
+			<Score />
 		</div>
 	);
 }
