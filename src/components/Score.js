@@ -3,7 +3,8 @@ import "firebase/firestore";
 import { useFirestoreDocData, useFirestore } from "reactfire";
 import firebase from 'firebase';
 import './Style.css';
-import logo from '../asserts/logos_a_logos_winner.png'
+import logo from '../asserts/logos_a_logos_winner.png';
+
 function Score() {
 
     const team1Ref = useFirestore().collection("Teams").doc("Developers");
@@ -18,17 +19,17 @@ function Score() {
 
     return (
         <div className='container'>
-            
-            <h1 className='dashboardTitle'>Dashboard <img className='logoImg' src={logo}/></h1>          
+
+            <h1 className='dashboardTitle'>Dashboard <img className='logoImg' src={logo} /></h1>
             <h1>Current Question:</h1>
-            <h1>{CurrentQuestionData?.question}</h1><br/>
+            <h1 className='currQues'>{CurrentQuestionData?.question}</h1><br />
             <h1>Score Tables:</h1>
             {/* <p>{team1Ref.id}: {team1Data?.Score}</p>
             <p>{team2Ref.id}: {team2Data?.Score}</p> */}
 
             <table className='scoreTable'>
                 <tr className='headerTable'>
-                    <th>Total</th>
+                    <th style={{ color: '#F3CB05' }}>Total</th>
                     <td>Q15</td>
                     <td>Q14</td>
                     <td>Q13</td>
@@ -88,7 +89,7 @@ function Score() {
 
             <table className='scoreTable'>
                 <tr className='headerTable'>
-                    <th>Total</th>
+                    <th style={{ color: '#F3CB05' }}>Total</th>
                     <td>Q15</td>
                     <td>Q14</td>
                     <td>Q13</td>
