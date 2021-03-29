@@ -2,7 +2,7 @@
   text-align: center;
   height: 100vh;
   background: linear-gradient(to bottom, #848486 7%, #c5c4c5 100%);
-
+  margin-top: -27px;
 }
 
 .App-logo {
