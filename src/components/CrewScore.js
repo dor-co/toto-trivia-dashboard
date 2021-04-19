@@ -1,10 +1,10 @@
 import React from 'react';
+import './Style.css';
 
-function crewScore({ item, index, id }) {
-    console.log(item)
+function crewScore({ item }) {
     return (
-        <div style={{textAlign: 'left', paddingLeft: 20, paddingTop: 5}}>
-            <h1>{item.crew}: {item.Total.join(" ")}</h1>
+        <div style={{textAlign: 'center', paddingRight: 20, paddingTop: 5, direction: 'rtl', flexDirection: 'row', display: 'flex'}}>
+            <h1 style={{width: '63%'}}>{item.title}: </h1> <span className='scoreField'>{item.score}</span>
         </div>
     );
 }
