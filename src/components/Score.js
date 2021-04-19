@@ -1,25 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import "firebase/firestore";
 import { useFirestoreDocData, useFirestore, firestore } from "reactfire";
-import firebase from 'firebase';
 import './Style.css';
 import logo from '../asserts/logos_a_logos_winner.png';
 import TeamScore from './TeamScore';
 import CrewScore from './CrewScore';
 
 function Score() {
-    const [renderCount, setRenderCount] = useState(0);
     
     const CurrentQuestionRef = useFirestore().collection("CurrentQuestion").doc("CurrentQuestion");
     const CurrentQuestionData = useFirestoreDocData(CurrentQuestionRef).data;
-
-    const user1 = useFirestore().collection("Users").doc("1");
-    const user1Data = useFirestoreDocData(user1).data;
-
-    const question = useFirestore().collection("Question").doc("1CTj880EnpGboYwcmDiL").collection('Answers').doc('3.2');
-    const questionData = useFirestoreDocData(question).data;
-    const user2 = useFirestore().collection("Users").doc("2");
-    const user2Data = useFirestoreDocData(user2).data;
 
     const [teams, setTeams] = useState([]);
 	const [ID, setID] = useState([]);
@@ -32,8 +22,8 @@ function Score() {
 	let crewIds = [];
 
     useEffect(() => {
-		ueCall()
-	}, [])
+        ueCall()
+    }, [])
 
 	const db = firestore();
 
@@ -55,21 +45,21 @@ function Score() {
 			setCrewID(crewIds);
     }  
     
-        const displayScoreRef = useFirestore().collection('Dashboard').doc('Dashboard');
-        const displayScoreData = useFirestoreDocData(displayScoreRef).data;
-        console.log('showscore', displayScoreData?.showScore)
+    const displayScoreRef = useFirestore().collection('Dashboard').doc('Dashboard');
+    const displayScoreData = useFirestoreDocData(displayScoreRef).data;
+    console.log('showscore', displayScoreData?.showScore)
 
-        if(displayScoreData?.showScore === true){
-            window.location.reload();
-        }
+    if(displayScoreData?.showScore === true){
+        window.location.reload();
+    }
 
     return (
         <div className='container'>
             <h1 className='dashboardTitle'>Dashboard <img className='logoImg' src={logo} /></h1>
+            <h2 style={{color: '#fff', fontSize: 45, fontWeight: 300}}>ערב השקה - צוות טוטו</h2>
             <h1>Current Question:</h1>
             <h1 className='currQues'>{CurrentQuestionData?.question}</h1><br />
-            <h1>Score Tables:</h1><br/>
-            <h3>Team's Score:</h3>
+            <h1 style={{textDecoration: 'underline'}}>Team's Score:</h1>
             {teams.map((item, index) => {
                     return (
                         <TeamScore
@@ -80,7 +70,7 @@ function Score() {
                     )                    
 			})}
 
-            <br/><h3>Crew's Score:</h3>
+            <br/><h1 style={{textDecoration: 'underline'}}>Crew's Score:</h1>
             {crews.map((item, index) => {
                     return (
                         <CrewScore
