@@ -6,7 +6,7 @@ import background from './asserts/original.png';
 function App() {
 	return (
 		<>
-			<img className="backgoundImg" src={background} style={{position: 'absolute', zIndex: -1, width: '100%', height: '200hv'}} />
+			<img className="backgoundImg" alt='backgoundImage' src={background} style={{position: 'absolute', zIndex: -1, width: '100%', height: '200hv'}} />
 				<div className="App">
 					<Score />
 			</div>
