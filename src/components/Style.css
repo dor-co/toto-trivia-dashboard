@@ -27,6 +27,7 @@
     font-size: 40px;
     position: sticky;
     top: 0px;
+    z-index: 2;
 }
 
 .logoImg{
