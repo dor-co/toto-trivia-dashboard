@@ -3,8 +3,6 @@ import "firebase/firestore";
 import { useFirestoreDocData, useFirestore, firestore } from "reactfire";
 import './Style.css';
 import logo from '../asserts/logos_a_logos_winner.png';
-// import TeamScore from './TeamScore';
-// import CrewScore from './CrewScore';
 
 function Score() {
     
@@ -18,17 +16,9 @@ function Score() {
     const colCount = dashboardRefData?.columnCounter;
 
     const [teams, setTeams] = useState([]);
-	//const [ID, setID] = useState([]);
-	// const temp = [];
-	// let ids = [];
-
     const [crews, setCrews] = useState([]);
-	// const [crewID, setCrewID] = useState([]);
-	// const tempCrew = [];
-	// let crewIds = [];
-
     const [questions, setQuestions] = useState([]);
-	// const tempQuestions = [];
+    const [topUsers, setTopUsers] = useState([]);
 
     const useItems = (itemType, callback, items) => {
         useEffect(() => {
@@ -50,43 +40,28 @@ function Score() {
     useItems("Questions", setQuestions, questions);
     useItems("Crews", setCrews, crews);
     useItems("Teams", setTeams, teams);
-
-    // useEffect(() => {
-    //     ueCall()
-    // }, [])
-
-	// const ueCall=async()=>{
-	// 	const userData = await db.collection('Teams').get();
-    //     userData.forEach((doc) => {
-    //         ids.push(doc.id);
-    //         temp.push(doc.data());
-    //     })
-    //     setTeams(temp);
-    //     setID(ids);
-
-    //     const crewData = await db.collection('Crews').get();
-    //     crewData.forEach((doc) => {
-    //         crewIds.push(doc.id);
-    //         tempCrew.push(doc.data());
-    //     })
-    //     setCrews(tempCrew);
-    //     setCrewID(crewIds);
-
-    //     const qu = await db.collection('Questions').get();
-    //     qu.forEach((doc) => {
-    //         tempQuestions.push(doc.data());
-    //     })
-    //     setQuestions(tempQuestions);
-    // }  
+    useItems("Users", setTopUsers, topUsers);
 
     return (
         <div className='container'>
             <h1 className='dashboardTitle'>Dashboard <img className='logoImg' alt='logoImage' src={logo} /></h1>
-            <h2 style={{color: '#fff', fontSize: 45, fontWeight: 300}}>ערב השקה - צוות טוטו</h2>
+            <div style={{display: "flex", flexDirection: "row", textAlign: "center", justifyContent: "center", direction: 'rtl'}}>
+                <h2 style={{color: '#fff', fontSize: 45, fontWeight: 300}}>ערב השקה - צוות טוטו</h2>
+                <h2 style={{color: '#000', fontSize: 35, position: 'absolute', left:0, marginLeft: 100, marginTop: 40}}>שחקנים מובילים:</h2>
+                <div style={{color: '#000', fontSize: 20, position: 'absolute', left:0, marginLeft: 180, paddingTop: 30, marginTop: 40}}>
+                {topUsers.sort((a, b) => (b.score) - (a.score)).slice(0, 3).map((el) => {
+                    return(
+                        <>
+                            {el.score !== 0 ? (<h2>{el.firstName}</h2>) : (null)}
+                        </>
+                    );
+                })}
+                <br/>
+            </div>
+            </div>
             <h1 style={{textDecoration: 'underline', direction: 'rtl'}}>שאלה נוכחית:</h1>
             <h1 className='currQues'>{CurrentQuestionData?.question}</h1><br />
-
-            <h1 style={{textDecoration: 'underline', direction: 'rtl'}}>טבלת נקודות לפי צוותים:</h1> 
+            <h1 style={{textDecoration: 'underline', direction: 'rtl', marginTop: 40}}>טבלת נקודות לפי צוותים:</h1> 
             <table style={{boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)', background: 'rgba(90, 90, 90, .82)', borderCollapse: 'collapse', textAlign: 'center', margin: '0 auto',width: '80%', direction: 'rtl', display: 'absolute' }}>
                 <thead>
                     <tr>
