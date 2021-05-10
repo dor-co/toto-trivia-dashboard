@@ -62,3 +62,111 @@
 .container{
     
 }
+
+.headerDiv{
+    display: flex;
+    flex-direction: row; 
+    text-align: center;
+    justify-content: center; 
+    direction: rtl; 
+}
+
+.totoTeamTitle{ 
+    color: #fff;
+    font-size: 45px;
+    font-weight: 300; 
+}
+
+.topPlayers{
+    color: #000; 
+    font-size: 35px; 
+    position: absolute;  
+    margin-left: 100px; 
+    margin-top: 40px;
+    left: 0px;
+}
+
+.topPlayersList{
+    color: #000; 
+    font-size: 20px; 
+    position: absolute;  
+    margin-left: 180px; 
+    margin-top: 40px;
+    padding-top: 30px;
+    left: 0px;
+}
+
+.curQues{
+    text-decoration: underline;
+    direction: rtl;
+}
+
+.teamsHeader{
+    text-decoration: underline;
+    direction: rtl;
+    margin-top: 40px;
+}
+
+.tables{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: rgba(90, 90, 90, .82);
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    direction: rtl;
+    display: absolute;
+}
+
+.theadStyle{
+    border: 3px solid #AAAAAA;
+}
+
+.groupsNames{
+    border: 3px solid #AAAAAA; 
+    width: 300px; 
+    height: 50px; 
+    color: #f9cf03; 
+    font-size: 30px;
+}
+
+.numQues{
+    border-collapse: collapse; 
+    height: 50px; 
+    border: 3px solid #AAAAAA; 
+    color: #f9cf03; 
+    font-size: 30px; 
+}
+
+.titles{
+    height: 60px; 
+    color: #f9cf03;
+    font-size: 25px; 
+    padding: 5px; 
+    border: 3px solid #AAAAAA; 
+    font-weight: bold; 
+}
+
+.total{
+    border: 3px solid #AAAAAA; 
+    width: 250px;
+    color: #f9cf03;
+    font-size: 30px;
+}
+
+.score{
+    height: 60px; 
+    color: #fff; 
+    font-size: 25px;
+    padding: 5px;
+    border: 3px solid #AAAAAA;
+}
+
+.totalScore{
+    height: 60px; 
+    color: #f9cf03; 
+    font-size: 25px; 
+    padding: 5px;
+    border: 3px solid #AAAAAA;
+    font-weight: bold;
+}

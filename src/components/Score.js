@@ -97,7 +97,9 @@ function Score() {
 
 					var crewUserCorrectAnswersPrice = crewUsersCorrectAnswers?.reduce((price, item) => price + item.price, 0);
 					return crewUserCorrectAnswersPrice;
+                    
 				}),
+            
 			};
 		});
 		return score;
@@ -134,10 +136,10 @@ function Score() {
 			<h1 className="dashboardTitle">
 				Dashboard <img className="logoImg" alt="logoImage" src={logo} />
 			</h1>
-			<div style={{ display: "flex", flexDirection: "row", textAlign: "center", justifyContent: "center", direction: "rtl" }}>
-				<h2 style={{ color: "#fff", fontSize: 45, fontWeight: 300 }}>ערב השקה - צוות טוטו</h2>
-				<h2 style={{ color: "#000", fontSize: 35, position: "absolute", left: 0, marginLeft: 100, marginTop: 40 }}>שחקנים מובילים:</h2>
-				<div style={{ color: "#000", fontSize: 20, position: "absolute", left: 0, marginLeft: 180, paddingTop: 30, marginTop: 40 }}>
+			<div className="headerDiv">
+				<h2 className="totoTeamTitle">ערב השקה - צוות טוטו</h2>
+				<h2 className="topPlayers">שחקנים מובילים:</h2>
+				<div className="topPlayersList">
 					{topUsers
 
 						.sort((a, b) => b.score - a.score)
@@ -148,42 +150,31 @@ function Score() {
 					<br />
 				</div>
 			</div>
-			<h1 style={{ textDecoration: "underline", direction: "rtl" }}>שאלה נוכחית:</h1>
+			<h1 className="curQues">שאלה נוכחית:</h1>
 			<h1 className="currQues">{CurrentQuestionData?.question}</h1>
 			<br />
-			<h1 style={{ textDecoration: "underline", direction: "rtl", marginTop: 40 }}>טבלת נקודות לפי צוותים:</h1>
-			<table
-				style={{
-					boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-					background: "rgba(90, 90, 90, .82)",
-					borderCollapse: "collapse",
-					textAlign: "center",
-					margin: "0 auto",
-					width: "80%",
-					direction: "rtl",
-					display: "absolute",
-				}}>
-				<thead>
+			<h1 className="teamsHeader">טבלת נקודות לפי צוותים:</h1>
+			<table className="tables">
+				<thead className="theadStyle">
 					<tr>
-						<th style={{ border: "3px solid #AAAAAA", width: 300, height: 50, color: "#f9cf03", fontSize: 30 }}>צוות</th>
+						<th className="groupsNames">צוות</th>
 						{questions.map((ques, index) => {
-							return <th style={{ borderCollapse: "collapse", height: 50, border: "3px solid #AAAAAA", color: "#f9cf03", fontSize: 30 }}>Q{index + 1}</th>;
+							return <th className="numQues">Q{index + 1}</th>;
 						})}
-						<th style={{ border: "3px solid #AAAAAA", width: 250, color: "#f9cf03", fontSize: 30 }}>סה״כ</th>
+						<th className='total'>סה״כ</th>
 					</tr>
 				</thead>
 				<tbody>
 					{crewScores.map((item) => {
 						return (
 							<tr>
-								<td style={{ height: 60, color: "#f9cf03", fontSize: 25, padding: 5, border: "3px solid #AAAAAA", fontWeight: "bold" }}>{item.title}</td>
+								<td className='titles'>{item.title}</td>
 
-								{/* map of score */}
 								{item.questions.map((el, index) => {
-									return <td style={{ height: 60, color: "#fff", fontSize: 25, padding: 5, border: "3px solid #AAAAAA" }}>{el}</td>;
+									return <td className='score'>{el}</td>;
 								})}
 
-								<td style={{ height: 60, color: "#f9cf03", fontSize: 25, padding: 5, border: "3px solid #AAAAAA", fontWeight: "bold" }}>{item.questions.reduce((total, item) => total + item, 0)}</td>
+								<td className='totalScore'>{item.questions.reduce((total, item) => total + item, 0)}</td>
 							</tr>
 						);
 					})}
@@ -191,86 +182,64 @@ function Score() {
 			</table>
 			<br />
 
-			<h1 style={{ textDecoration: "underline", direction: "rtl" }}>טבלת נקודות לפי קבוצות:</h1>
-			<table
-				style={{
-					boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-					background: "rgba(90, 90, 90, .82)",
-					borderCollapse: "collapse",
-					textAlign: "center",
-					margin: "0 auto",
-					width: "80%",
-					direction: "rtl",
-					display: "absolute",
-				}}>
-				<thead style={{ border: "3px solid #AAAAAA" }}>
+			<h1 className="teamsHeader">טבלת נקודות לפי קבוצות:</h1>
+			<table className="tables">
+				<thead className="theadStyle">
 					<tr>
-						<th style={{ border: "3px solid #AAAAAA", width: 300, height: 50, color: "#f9cf03", fontSize: 30 }}>קבוצה</th>
+						<th className="groupsNames">קבוצה</th>
 						{questions.map((ques, index) => {
-							return <th style={{ borderCollapse: "collapse", height: 50, border: "3px solid #AAAAAA", color: "#f9cf03", fontSize: 30 }}>Q{index + 1}</th>;
+							return <th className="numQues">Q{index + 1}</th>;
 						})}
-						<th style={{ border: "3px solid #AAAAAA", width: 250, color: "#f9cf03", fontSize: 30 }}>סה״כ</th>
+						<th className='total'>סה״כ</th>
 					</tr>
 				</thead>
 				<tbody>
 					{teamsScores.map((item) => {
 						return (
 							<tr>
-								<td style={{ height: 60, color: "#f9cf03", fontSize: 25, padding: 5, border: "3px solid #AAAAAA", fontWeight: "bold" }}>{item.title}</td>
+								<td className='titles'>{item.title}</td>
 
-								{/* map of score */}
 								{item.questions.map((el, index) => {
 									return colCount > index ? (
-										<td style={{ height: 60, color: "#fff", fontSize: 25, padding: 5, border: "3px solid #AAAAAA" }}>{el}</td>
+										<td className='score'>{el}</td>
 									) : (
-										<td style={{ height: 60, color: "#fff", fontSize: 25, padding: 5, border: "3px solid #AAAAAA" }}>???</td>
+										<td className='score'>???</td>
 									);
 								})}
 
-								<td style={{ height: 60, color: "#f9cf03", fontSize: 25, padding: 5, border: "3px solid #AAAAAA", fontWeight: "bold" }}>{item.questions.slice(0, colCount).reduce((total, item) => total + item, 0)}</td>
+								<td className='totalScore'>{item.questions.slice(0, colCount).reduce((total, item) => total + item, 0)}</td>
 							</tr>
 						);
 					})}
 				</tbody>
 			</table>
 
-			<h1 style={{ textDecoration: "underline", direction: "rtl" }}>טבלת נקודות לפי אנשים:</h1>
-			<table
-				style={{
-					boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-					background: "rgba(90, 90, 90, .82)",
-					borderCollapse: "collapse",
-					textAlign: "center",
-					margin: "0 auto",
-					width: "80%",
-					direction: "rtl",
-					display: "absolute",
-				}}>
-				<thead style={{ border: "3px solid #AAAAAA" }}>
+			<h1 className="teamsHeader">טבלת נקודות לפי אנשים:</h1>
+			<table className="tables">
+				<thead className="theadStyle">
 					<tr>
-						<th style={{ border: "3px solid #AAAAAA", width: 300, height: 50, color: "#f9cf03", fontSize: 30 }}>משתמש</th>
+						<th className="groupsNames">משתמש</th>
 						{questions.map((ques, index) => {
-							return <th style={{ borderCollapse: "collapse", height: 50, border: "3px solid #AAAAAA", color: "#f9cf03", fontSize: 30 }}>Q{index + 1}</th>;
+							return <th className="numQues">Q{index + 1}</th>;
 						})}
-						<th style={{ border: "3px solid #AAAAAA", width: 250, color: "#f9cf03", fontSize: 30 }}>סה״כ</th>
+						<th className='total'>סה״כ</th>
 					</tr>
 				</thead>
 				<tbody>
 					{userScores.map((item) => {
 						return (
 							<tr>
-								<td style={{ height: 60, color: "#f9cf03", fontSize: 25, padding: 5, border: "3px solid #AAAAAA", fontWeight: "bold" }}>{item.firstName}</td>
+								<td className='titles'>{item.firstName}</td>
 
-								{/* map of score */}
 								{item.questions.map((el, index) => {
 									return colCount > index ? (
-										<td style={{ height: 60, color: "#fff", fontSize: 25, padding: 5, border: "3px solid #AAAAAA" }}>{el}</td>
+										<td className='score'>{el}</td>
 									) : (
-										<td style={{ height: 60, color: "#fff", fontSize: 25, padding: 5, border: "3px solid #AAAAAA" }}>???</td>
+										<td className='score'>???</td>
 									);
 								})}
 
-								<td style={{ height: 60, color: "#f9cf03", fontSize: 25, padding: 5, border: "3px solid #AAAAAA", fontWeight: "bold" }}>{item.questions.slice(0, colCount).reduce((total, item) => total + item, 0)}</td>
+								<td className='totalScore'>{item.questions.slice(0, colCount).reduce((total, item) => total + item, 0)}</td>
 							</tr>
 						);
 					})}
