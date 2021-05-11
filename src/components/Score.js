@@ -54,7 +54,6 @@ function Score() {
 						var ri = cu.AQ?.filter((aq) => {
 							return aq.ques === q.id && aq.ans.trim() === rightAnswer.answer.trim();
 						});
-
 						ri = ri.map((aq) => {
 							return {
 								...aq,
@@ -108,6 +107,7 @@ function Score() {
 	const getUserScore = () => {
 		var score = topUsers.map((user) => {
 			return {
+				id: user.id,
 				firstName: user.firstName,
 				questions: questions.map((q) => {
 					var rightAnswer = q?.answers.filter((a) => a.isCorrect)[0];
@@ -171,6 +171,9 @@ function Score() {
 								<td className='titles'>{item.title}</td>
 
 								{item.questions.map((el, index) => {
+									db.collection('Crews').doc(item.id).update({
+										score: item.questions.reduce((total, item) => total + item, 0)
+									})
 									return <td className='score'>{el}</td>;
 								})}
 
@@ -200,6 +203,9 @@ function Score() {
 								<td className='titles'>{item.title}</td>
 
 								{item.questions.map((el, index) => {
+									db.collection('Teams').doc(item.id).update({
+										score: item.questions.reduce((total, item) => total + item, 0)
+									})
 									return colCount > index ? (
 										<td className='score'>{el}</td>
 									) : (
@@ -232,6 +238,9 @@ function Score() {
 								<td className='titles'>{item.firstName}</td>
 
 								{item.questions.map((el, index) => {
+									db.collection('Users').doc(item.id).update({
+										score: item.questions.slice(0, colCount).reduce((total, item) => total + item, 0)
+									})
 									return colCount > index ? (
 										<td className='score'>{el}</td>
 									) : (
