@@ -54,13 +54,17 @@ function Score() {
 						var ri = cu.AQ?.filter((aq) => {
 							return aq.ques === q.id && aq.ans.trim() === rightAnswer.answer.trim();
 						});
-						ri = ri.map((aq) => {
-							return {
-								...aq,
-								price: rightAnswer.price,
-							};
-						});
+						if(ri !== undefined){
+							ri = ri.map((aq) => {
+								return {
+									...aq,
+									price: rightAnswer.price,
+								};
+							});
 						crewUsersCorrectAnswers.push(...ri);
+							
+						}
+						
 					});
 
 					var crewUserCorrectAnswersPrice = crewUsersCorrectAnswers?.reduce((price, item) => price + item.price, 0);
@@ -81,17 +85,22 @@ function Score() {
 					var crewUsers = topUsers.filter((u) => u.teamId === c.id);
 					var crewUsersCorrectAnswers = [];
 					crewUsers.forEach((cu) => {
+						console.log(cu)
 						var ri = cu.AQ?.filter((aq) => {
 							return aq.ques === q.id && aq.ans.trim() === rightAnswer.answer.trim();
 						});
 
-						ri = ri.map((aq) => {
-							return {
-								...aq,
-								price: rightAnswer.price,
-							};
-						});
+						if(ri !== undefined){
+							ri = ri.map((aq) => {
+								return {
+									...aq,
+									price: rightAnswer.price,
+								};
+							});
 						crewUsersCorrectAnswers.push(...ri);
+
+						}
+						
 					});
 
 					var crewUserCorrectAnswersPrice = crewUsersCorrectAnswers?.reduce((price, item) => price + item.price, 0);
@@ -150,9 +159,13 @@ function Score() {
 					<br />
 				</div>
 			</div>
+
 			<h1 className="curQues">שאלה נוכחית:</h1>
 			<h1 className="currQues">{CurrentQuestionData?.question}</h1>
 			<br />
+
+			<div className='tab' style={{display: "inline-flex"}}>
+			<div className='teamsAndCrews' style={{width: '100%', minWidth: 900}}>
 			<h1 className="teamsHeader">טבלת נקודות לפי צוותים:</h1>
 			<table className="tables">
 				<thead className="theadStyle">
@@ -219,7 +232,9 @@ function Score() {
 					})}
 				</tbody>
 			</table>
+			</div>
 
+			<div className='userss' style={{width: '100%', minWidth: 900}}>
 			<h1 className="teamsHeader">טבלת נקודות לפי אנשים:</h1>
 			<table className="tables">
 				<thead className="theadStyle">
@@ -254,6 +269,8 @@ function Score() {
 					})}
 				</tbody>
 			</table>
+			</div>
+			</div>
 		</div>
 	);
 }
