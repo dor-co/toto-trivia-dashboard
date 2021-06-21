@@ -3,6 +3,8 @@ import "firebase/firestore";
 import { useFirestoreDocData, useFirestore, firestore } from "reactfire";
 import "./Style.css";
 import logo from "../asserts/logos_a_logos_winner.png";
+import ballLogo from "../asserts/image-toto-ball@2x.png"
+import headerBack from "../asserts/header-back.jpeg";
 
 function Score() {
 	const CurrentQuestionRef = useFirestore().collection("CurrentQuestion").doc("CurrentQuestion");
@@ -143,7 +145,7 @@ function Score() {
 	return (
 		<div className="container">
 			<h1 className="dashboardTitle">
-				Dashboard <img className="logoImg" alt="logoImage" src={logo} />
+				<span style={{zIndex: 2, paddingLeft: 5, width: '100%'}}>Dashboard</span><img className="headerBack" alt="logoImage" src={headerBack} /><img className="ballLogoImg" alt="logoImage" src={ballLogo} /><img className="logoImg" alt="logoImage" src={logo} />
 			</h1>
 			<div className="headerDiv">
 				<h2 className="totoTeamTitle">ערב השקה - צוות טוטו</h2>

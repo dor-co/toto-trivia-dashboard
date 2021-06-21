@@ -1,7 +1,7 @@
 import "./App.css";
 import "firebase/firestore";
 import Score from './components/Score';
-import background from './asserts/original.png';
+import background from './asserts/grey-back.jpeg';
 
 function App() {
 	return (

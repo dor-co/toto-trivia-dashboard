@@ -20,7 +20,8 @@
 }
 
 .dashboardTitle{
-    background: linear-gradient(to bottom, #2c2c2c 50%, #000000 50%);
+    /* background: linear-gradient(to bottom, #2c2c2c 50%, #000000 50%); */
+    background: #c60a0a;
     color: #E9E9E9;
     height: 50px;
     padding-top: 2px;
@@ -28,6 +29,8 @@
     position: sticky;
     top: 0px;
     z-index: 2;
+    margin-bottom: 10px;
+    display: flex;
 }
 
 .logoImg{
@@ -36,14 +39,27 @@
     top: 9px;
 }
 
+.ballLogoImg{
+    position: absolute;
+    right: 137px;
+    top: 4px;
+    width: 45px;
+}
+
+.headerBack{
+    position: absolute;
+    right: 0px;
+    height: 97%;
+}
+
 .currQues{
     margin: 0 auto;
-    background: #ED1C25;
+    background: #515152;
     width: 50%;
     border-radius: 12px;
     color: #fff;
     padding-bottom: 4px;
-    font-size: 50px;
+    font-size: 35px;
     direction: rtl;
 }
 
@@ -61,7 +77,7 @@
 }
 
 .container{
-    
+    display: grid;
 }
 
 .headerDiv{
@@ -74,8 +90,9 @@
 
 .totoTeamTitle{ 
     color: #fff;
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 300; 
+    margin-top: 0px;
 }
 
 .topPlayers{
@@ -83,8 +100,9 @@
     font-size: 35px; 
     position: absolute;  
     margin-left: 100px; 
-    margin-top: 40px;
+    margin-top: 0px;
     left: 0px;
+    z-index: -1;
 }
 
 .topPlayersList{
@@ -92,20 +110,24 @@
     font-size: 20px; 
     position: absolute;  
     margin-left: 180px; 
-    margin-top: 40px;
+    margin-top: 0px;
     padding-top: 30px;
+    z-index: -1;
     left: 0px;
 }
 
 .curQues{
     text-decoration: underline;
     direction: rtl;
+    margin-top: 0px;
+    margin-bottom: 5px;
 }
 
 .teamsHeader{
     text-decoration: underline;
     direction: rtl;
-    margin-top: 40px;
+    margin-top: 10px;
+    font-size: 27px;
 }
 
 .tables{
@@ -114,60 +136,64 @@
     border-collapse: collapse;
     text-align: center;
     margin: 0 auto;
-    width: 95%;
+    width: 98%;
     direction: rtl;
     display: absolute;
 }
 
 .theadStyle{
-    border: 3px solid #AAAAAA;
+    border: 2px solid #AAAAAA;
 }
 
 .groupsNames{
-    border: 3px solid #AAAAAA; 
-    width: 300px; 
+    border: 2px solid #AAAAAA; 
+    width: 240px; 
     height: 50px; 
     color: #f9cf03; 
-    font-size: 30px;
+    background: #414042;
+    font-size: 23px;
 }
 
 .numQues{
     border-collapse: collapse; 
     height: 50px; 
-    border: 3px solid #AAAAAA; 
+    border: 2px solid #AAAAAA; 
     color: #f9cf03; 
-    font-size: 30px; 
+    font-size: 23px; 
+    background: #414042;
 }
 
 .titles{
     height: 60px; 
     color: #f9cf03;
-    font-size: 25px; 
+    font-size: 23px; 
     padding: 5px; 
-    border: 3px solid #AAAAAA; 
+    border: 2px solid #AAAAAA; 
     font-weight: bold; 
+    background: #515152;
 }
 
 .total{
-    border: 3px solid #AAAAAA; 
-    width: 250px;
+    border: 2px solid #AAAAAA; 
+    width: 100px;
     color: #f9cf03;
-    font-size: 30px;
+    font-size: 23px;
+    background: #414042;
 }
 
 .score{
     height: 60px; 
     color: #fff; 
-    font-size: 25px;
+    font-size: 23px;
     padding: 5px;
-    border: 3px solid #AAAAAA;
+    border: 2px solid #AAAAAA;
 }
 
 .totalScore{
     height: 60px; 
     color: #f9cf03; 
-    font-size: 25px; 
+    font-size: 23px; 
     padding: 5px;
-    border: 3px solid #AAAAAA;
+    border: 2px solid #AAAAAA;
     font-weight: bold;
 }
