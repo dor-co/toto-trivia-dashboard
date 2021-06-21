@@ -160,11 +160,12 @@
     border: 2px solid #AAAAAA; 
     color: #f9cf03; 
     font-size: 23px; 
+    width: 40px;
     background: #414042;
 }
 
 .titles{
-    height: 60px; 
+    height: 35px; 
     color: #f9cf03;
     font-size: 23px; 
     padding: 5px; 
@@ -182,7 +183,7 @@
 }
 
 .score{
-    height: 60px; 
+    height: 35px; 
     color: #fff; 
     font-size: 23px;
     padding: 5px;
@@ -190,7 +191,7 @@
 }
 
 .totalScore{
-    height: 60px; 
+    height: 35px; 
     color: #f9cf03; 
     font-size: 23px; 
     padding: 5px;

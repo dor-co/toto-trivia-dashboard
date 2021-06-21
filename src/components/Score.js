@@ -174,7 +174,7 @@ function Score() {
 					<tr>
 						<th className="groupsNames">צוות</th>
 						{questions.map((ques, index) => {
-							return <th className="numQues">Q{index + 1}</th>;
+							return <th className="numQues">{index + 1}</th>;
 						})}
 						<th className='total'>סה״כ</th>
 					</tr>
@@ -206,7 +206,7 @@ function Score() {
 					<tr>
 						<th className="groupsNames">קבוצה</th>
 						{questions.map((ques, index) => {
-							return <th className="numQues">Q{index + 1}</th>;
+							return <th className="numQues">{index + 1}</th>;
 						})}
 						<th className='total'>סה״כ</th>
 					</tr>
@@ -243,7 +243,7 @@ function Score() {
 					<tr>
 						<th className="groupsNames">משתמש</th>
 						{questions.map((ques, index) => {
-							return <th className="numQues">Q{index + 1}</th>;
+							return <th className="numQues">{index + 1}</th>;
 						})}
 						<th className='total'>סה״כ</th>
 					</tr>
