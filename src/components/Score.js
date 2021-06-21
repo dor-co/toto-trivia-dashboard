@@ -145,12 +145,12 @@ function Score() {
 	return (
 		<div className="container">
 			<h1 className="dashboardTitle">
-				<span style={{zIndex: 2, paddingLeft: 5, width: '100%'}}>Dashboard</span><img className="headerBack" alt="logoImage" src={headerBack} /><img className="ballLogoImg" alt="logoImage" src={ballLogo} /><img className="logoImg" alt="logoImage" src={logo} />
+				<span style={{zIndex: 2, fontWeight: 200, width: '100%'}}>ערב השקה - צוות טוטו</span><img className="headerBack" alt="logoImage" src={headerBack} /><img className="ballLogoImg" alt="logoImage" src={ballLogo} /><img className="logoImg" alt="logoImage" src={logo} />
 			</h1>
-			<div className="headerDiv">
-				<h2 className="totoTeamTitle">ערב השקה - צוות טוטו</h2>
-				<h2 className="topPlayers">שחקנים מובילים:</h2>
-				<div className="topPlayersList">
+			{/* <div className="headerDiv"> */}
+				{/* <h2 className="totoTeamTitle">ערב השקה - צוות טוטו</h2> */}
+				{/* <h2 className="topPlayers">שחקנים מובילים:</h2> */}
+				{/* <div className="topPlayersList">
 					{topUsers
 
 						.sort((a, b) => b.score - a.score)
@@ -159,12 +159,12 @@ function Score() {
 							return <>{el.score !== 0 ? <h2>{el.firstName}</h2> : null}</>;
 						})}
 					<br />
-				</div>
-			</div>
+				</div> */}
+			{/* </div> */}
 
-			<h1 className="curQues">שאלה נוכחית:</h1>
+			{/* <h1 className="curQues">שאלה נוכחית:</h1>
 			<h1 className="currQues">{CurrentQuestionData?.question}</h1>
-			<br />
+			<br /> */}
 
 			<div className='tab' style={{display: "inline-flex"}}>
 			<div className='teamsAndCrews' style={{width: '100%', minWidth: 900}}>
