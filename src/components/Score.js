@@ -189,10 +189,10 @@ function Score() {
 									db.collection('Crews').doc(item.id).update({
 										score: item.questions.reduce((total, item) => total + item, 0)
 									})
-									return <td className='score'>{el}</td>;
+									return <td className='score'>{el.toFixed(1)}</td>;
 								})}
 
-								<td className='totalScore'>{item.questions.reduce((total, item) => total + item, 0)}</td>
+								<td className='totalScore'>{item.questions.reduce((total, item) => total + item, 0).toFixed(1)}</td>
 							</tr>
 						);
 					})}
@@ -222,13 +222,13 @@ function Score() {
 										score: item.questions.reduce((total, item) => total + item, 0)
 									})
 									return colCount > index ? (
-										<td className='score'>{el}</td>
+										<td className='score'>{el.toFixed(1)}</td>
 									) : (
 										<td className='score'>???</td>
 									);
 								})}
 
-								<td className='totalScore'>{item.questions.slice(0, colCount).reduce((total, item) => total + item, 0)}</td>
+								<td className='totalScore'>{item.questions.slice(0, colCount).reduce((total, item) => total + item, 0).toFixed(1)}</td>
 							</tr>
 						);
 					})}
@@ -259,13 +259,13 @@ function Score() {
 										score: item.questions.slice(0, colCount).reduce((total, item) => total + item, 0)
 									})
 									return colCount > index ? (
-										<td className='score'>{el}</td>
+										<td className='score'>{el.toFixed(1)}</td>
 									) : (
 										<td className='score'>???</td>
 									);
 								})}
 
-								<td className='totalScore'>{item.questions.slice(0, colCount).reduce((total, item) => total + item, 0)}</td>
+								<td className='totalScore'>{item.questions.slice(0, colCount).reduce((total, item) => total + item, 0).toFixed(1)}</td>
 							</tr>
 						);
 					})}
